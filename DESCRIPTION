@@ -1,5 +1,5 @@
 Package: biocdownloads
-Title: Inspect Bioconductor package download data
+Title: Retrieve Bioconductor package download data
 Version: 0.1.0
 Authors@R: person("Laurent", "Gatto",
                   email = "lg390@cam.ac.uk",
