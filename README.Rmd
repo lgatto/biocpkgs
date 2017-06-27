@@ -14,14 +14,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-# biocdownloads
+# The `biocdownloads` package
 
-The goal of biocdownloads is to ...
+The goal of `biocdownloads` is to download Bioconductor packages
+download data.
+
+## Installation
+
+```{r install, eval = FALSE}
+library("devtools")
+install_github("lgatto/biocdownloads")
+```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
-## basic example code
+library("biocdownloads")
+dl <- pkg_download_data(c("MSnbase", "rpx"))
+dl
+```
+
+```{r plotex}
+library("ggplot2")
+ggplot(dl, aes(x = Date, y = Nb_of_distinct_IPs,
+                group = package, colour = package)) + geom_line()
+
 ```

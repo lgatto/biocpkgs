@@ -7,6 +7,9 @@ Authors@R: person("Laurent", "Gatto",
 Description: Retrieve and inspect the download stats for any
              Bioconductor package.
 Depends: R (>= 3.4.0)
+Imports: readr, lubridate
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Suggests: testthat
+RoxygenNote: 6.0.1

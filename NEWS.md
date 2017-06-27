@@ -1,6 +1,6 @@
-# biocdownloads 0.0.0.9000
+# biocdownloads 0.1.0
 
-* Added a `NEWS.md` file to track changes to the package.
+* First release: `pkg_download_data` function
 
 
 
