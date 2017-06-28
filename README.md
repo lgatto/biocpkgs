@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lgatto/biocdownloads.svg?branch=master)](https://travis-ci.org/lgatto/biocdownloads)
+
 # The `biocdownloads` package
 
 The goal of `biocdownloads` is to download Bioconductor packages
@@ -29,7 +31,7 @@ dl
 ##  3  2017   Mar                705            1452 MSnbase 2017-03-01
 ##  4  2017   Apr                697            1407 MSnbase 2017-04-01
 ##  5  2017   May               1087            2040 MSnbase 2017-05-01
-##  6  2017   Jun                805            1445 MSnbase 2017-06-01
+##  6  2017   Jun                918            1734 MSnbase 2017-06-01
 ##  7  2017   Jul                  0               0 MSnbase 2017-07-01
 ##  8  2017   Aug                  0               0 MSnbase 2017-08-01
 ##  9  2017   Sep                  0               0 MSnbase 2017-09-01
