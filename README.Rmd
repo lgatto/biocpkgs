@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lgatto/biocdownloads.svg?branch=master)](https://travis-ci.org/lgatto/biocdownloads)
+
 # The `biocdownloads` package
 
 The goal of `biocdownloads` is to download Bioconductor packages
