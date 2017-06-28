@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/lgatto/biocdownloads.svg?branch=master)](https://travis-ci.org/lgatto/biocdownloads)
+[![codecov.io](https://codecov.io/github/lgatto/biocdownloads/coverage.svg?branch=master)](https://codecov.io/github/lgatto/biocdownloads?branch=master)
 
 # The `biocdownloads` package
 
