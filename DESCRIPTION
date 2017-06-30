@@ -1,13 +1,15 @@
-Package: biocdownloads
-Title: Retrieve Bioconductor package download data
+Package: biocpkgs
+Title: Learning about Bioconductor packages
 Version: 0.1.0
 Authors@R: person("Laurent", "Gatto",
                   email = "lg390@cam.ac.uk",
 		  role = c("aut", "cre"))
-Description: Retrieve and inspect the download stats for any
-             Bioconductor package.
+Description: The package provides utiliites to detrieve and inspect
+             the download stats for any Bioconductor package and to
+	     calculate and visualise dependencies between packages.	     
 Depends: R (>= 3.4.0)
-Imports: readr, lubridate
+Imports: readr, lubridate, pkgDepTools
+Suggests: Rgraphviz
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
