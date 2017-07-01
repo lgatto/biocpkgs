@@ -11,8 +11,11 @@ plot_pkg_dep_graph(gr, sz = 20, fs = 50, pkgs, colour = "steelblue",
   edge_colour = "#00000040")
 }
 \arguments{
-\item{pkgs}{The name of the package(s) to plot the dependency
-graph of.}
+\item{pkgs}{The name of the package(s) to generate and plot the
+dependency graph of. For plotting, it can be a list (each
+element of the list being highlighted using different colours)
+or a vector (all highlighted with the same colour) of package
+names to be highlighted.}
 
 \item{which}{What package repository to use to calculate
 dependency graphs. One of `"BioCsoft"`(default, Bioconductor
@@ -33,11 +36,6 @@ as the `pkgs`.}
 
 \item{edge_colour}{The colour of the edges. Default in
 `"#00000040"`.}
-
-\item{pkgs}{A optional list (each element of the list being
-highlighted using different colours) or vector (all
-highlighted with the same colour) of package names to be
-highlighted.}
 }
 \value{
 An object of class `graphNEL`
