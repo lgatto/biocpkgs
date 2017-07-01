@@ -3,7 +3,7 @@
 \name{pkg_dep_graph}
 \alias{pkg_dep_graph}
 \alias{plot_pkg_dep_graph}
-\title{Build the package dependency graph}
+\title{Package dependency graphs}
 \usage{
 pkg_dep_graph(pkgs, which = c("BioCsoft", "BioCann", "BioCexp", "CRAN"))
 
@@ -38,13 +38,21 @@ as the `pkgs`.}
 `"#00000040"`.}
 }
 \value{
-An object of class `graphNEL`
+An object of class `graphNEL` from the package
+    `graph`. The plotting function invisibly returns a `Ragraph`
+    object (from the `Rgraphviz` package).
 }
 \description{
 This function takes a list of packages and build the their
 dependency graph using all packages of a repository (for example
 all Bioconductor software or CRAN packages). The packages of
 interest and all their dependencies are used to create the graph.
+}
+\details{
+The dependency graph is of class `graphNL`. Plotting the graph
+also relies on the `Rgraphviz` packge. None of these packages are
+attached to the search path, but users might need to load them if
+they wish to manipulate the graph and customise the visualisation.
 }
 \examples{
 p <- c("MSnbase", "mzR")

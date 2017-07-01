@@ -27,7 +27,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 ##' The dependency graph is of class `graphNL`. Plotting the graph
 ##' also relies on the `Rgraphviz` packge. None of these packages are
 ##' attached to the search path, but users might need to load them if
-##' they wish to 
+##' they wish to manipulate the graph and customise the visualisation.
 ##' 
 ##' @title Package dependency graphs
 ##' @param pkgs The name of the package(s) to generate and plot the
