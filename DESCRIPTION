@@ -5,13 +5,17 @@ Authors@R: person("Laurent", "Gatto",
                   email = "lg390@cam.ac.uk",
 		  role = c("aut", "cre"))
 Description: The package provides utiliites to detrieve and inspect
-             the download stats for any Bioconductor package and to
-	     calculate and visualise dependencies between packages.	     
-Depends: R (>= 3.4.0)
-Imports: readr, lubridate, pkgDepTools
-Suggests: Rgraphviz
+    the download stats for any Bioconductor package and to
+    calculate and visualise dependencies between packages.
+Depends:
+    R (>= 3.4.0)
+Imports:
+    readr,
+    lubridate,
+    pkgDepTools
+Suggests:
+    testthat
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 5.0.1
