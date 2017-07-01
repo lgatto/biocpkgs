@@ -108,14 +108,3 @@ set_edge_colours <- function(gr, pkgs, colour = "steelblue",
     if (names) names(ans) <- x
     ans
 }
-
-## gr <- graph_from_graphnel(g)
-## igraph_layouts <- 'fr'
-## lout <- create_layout(gr, layout = i)
-## lout$my <- lout$name %in% ppn
-## p <- ggraph(lout) +
-##     geom_edge_link(arrow = arrow()) +
-##     geom_node_point(aes(colour = my, alpha = 0.5), size = 10) +
-##     ggtitle(paste0('Layout: ', i)) + 
-##     theme_graph(foreground = 'steelblue', fg_text_colour = 'white')
-## plot(p)

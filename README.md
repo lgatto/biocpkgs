@@ -54,4 +54,22 @@ ggplot(dl, aes(x = Date, y = Nb_of_distinct_IPs,
 
 ## Package dependencies
 
-TODO
+
+```r
+library("biocpkgs")
+p <- c("MSnbase", "mzR") ## packages of interest
+g <- pkg_dep_graph(pkgs = p) 
+g
+```
+
+```
+## A graphNEL graph with directed edges
+## Number of Nodes = 30 
+## Number of Edges = 50
+```
+
+```r
+plot_pkg_dep_graph(g, pkgs = p, fs = 25)
+```
+
+![plot of chunk deps0](figure/deps0-1.png)
