@@ -10,9 +10,12 @@ Description: The package provides utiliites to detrieve and inspect
 Depends:
     R (>= 3.4.0)
 Imports:
+    BiocInstaller,
+    pkgDepTools,
+    graph,
+    Rgraphviz,
     readr,
-    lubridate,
-    pkgDepTools
+    lubridate
 Suggests:
     testthat
 License: GPL-3

@@ -1,4 +1,4 @@
 library(testthat)
-library(biocdownloads)
+library(biocpkgs)
 
-test_check("biocdownloads")
+test_check("biocpkgs")

@@ -1,22 +1,24 @@
-[![Build Status](https://travis-ci.org/lgatto/biocdownloads.svg?branch=master)](https://travis-ci.org/lgatto/biocdownloads)
-[![codecov.io](https://codecov.io/github/lgatto/biocdownloads/coverage.svg?branch=master)](https://codecov.io/github/lgatto/biocdownloads?branch=master)
+[![Build Status](https://travis-ci.org/lgatto/biocpkgs.svg?branch=master)](https://travis-ci.org/lgatto/biocpkgs)
+[![codecov.io](https://codecov.io/github/lgatto/biocpkgs/coverage.svg?branch=master)](https://codecov.io/github/lgatto/biocpkgs?branch=master)
 
-# The `biocdownloads` package
+# The `biocpkgs` package
 
-The goal of `biocdownloads` is to download Bioconductor packages
-download data.
+The `biocpkgs`package offers simple utilities to explore download data
+and dependencies of Bioconductor packages. See this
+[vignette](https://lgatto.github.io/RforProteomics/articles/biocprot.html)
+for a usecase.
 
 ## Installation
 
 ```{r install, eval = FALSE}
 library("devtools")
-install_github("lgatto/biocdownloads")
+install_github("lgatto/biocpkgs")
 ```
 
-## Example
+## Download statistics
 
 ```{r example}
-library("biocdownloads")
+library("biocpkgs")
 dl <- pkg_download_data(c("MSnbase", "rpx"))
 dl
 ```
@@ -27,3 +29,8 @@ ggplot(dl, aes(x = Date, y = Nb_of_distinct_IPs,
                 group = package, colour = package)) + geom_line()
 
 ```
+
+
+## Package dependencies
+
+TODO

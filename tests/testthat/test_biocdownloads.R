@@ -1,7 +1,7 @@
 test_that("url to/from package", {
     pkg0 <- "MSnbase"
-    url <- biocdownloads:::one_pkg_download_url(pkg0)
-    pkg <- biocdownloads:::pkg_from_url(url)
+    url <- biocpkgs:::one_pkg_download_url(pkg0)
+    pkg <- biocpkgs:::pkg_from_url(url)
     expect_identical(pkg, pkg0)
 })
 

@@ -1,24 +1,26 @@
-[![Build Status](https://travis-ci.org/lgatto/biocdownloads.svg?branch=master)](https://travis-ci.org/lgatto/biocdownloads)
-[![codecov.io](https://codecov.io/github/lgatto/biocdownloads/coverage.svg?branch=master)](https://codecov.io/github/lgatto/biocdownloads?branch=master)
+[![Build Status](https://travis-ci.org/lgatto/biocpkgs.svg?branch=master)](https://travis-ci.org/lgatto/biocpkgs)
+[![codecov.io](https://codecov.io/github/lgatto/biocpkgs/coverage.svg?branch=master)](https://codecov.io/github/lgatto/biocpkgs?branch=master)
 
-# The `biocdownloads` package
+# The `biocpkgs` package
 
-The goal of `biocdownloads` is to download Bioconductor packages
-download data.
+The `biocpkgs`package offers simple utilities to explore download data
+and dependencies of Bioconductor packages. See this
+[vignette](https://lgatto.github.io/RforProteomics/articles/biocprot.html)
+for a usecase.
 
 ## Installation
 
 
 ```r
 library("devtools")
-install_github("lgatto/biocdownloads")
+install_github("lgatto/biocpkgs")
 ```
 
-## Example
+## Download statistics
 
 
 ```r
-library("biocdownloads")
+library("biocpkgs")
 dl <- pkg_download_data(c("MSnbase", "rpx"))
 dl
 ```
@@ -32,7 +34,7 @@ dl
 ##  3  2017   Mar                705            1452 MSnbase 2017-03-01
 ##  4  2017   Apr                697            1407 MSnbase 2017-04-01
 ##  5  2017   May               1087            2040 MSnbase 2017-05-01
-##  6  2017   Jun                918            1734 MSnbase 2017-06-01
+##  6  2017   Jun               1058            2000 MSnbase 2017-06-01
 ##  7  2017   Jul                  0               0 MSnbase 2017-07-01
 ##  8  2017   Aug                  0               0 MSnbase 2017-08-01
 ##  9  2017   Sep                  0               0 MSnbase 2017-09-01
@@ -48,3 +50,8 @@ ggplot(dl, aes(x = Date, y = Nb_of_distinct_IPs,
 ```
 
 ![plot of chunk plotex](figure/plotex-1.png)
+
+
+## Package dependencies
+
+TODO
