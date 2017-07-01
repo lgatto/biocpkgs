@@ -5,7 +5,15 @@ full_pkg_dep_graph <- function(which = c("BioCsoft", "BioCann", "BioCexp", "CRAN
 }
 
 ##' @importFrom graph acc subGraph
+##' @importFrom graph nodes
 subset_pkg_dep_graph <- function(pkgs, g) {
+    if (!all(ingr <- pkgs %in% nodes(g))) {
+        warning(sum(!ingr), " out of ", length(pkgs),
+                " packages not found.", call. = FALSE)
+        pkgs <- pkgs[ingr]
+        if (length(pkgs) == 0)
+            return(g)
+    }        
     deps <- unlist(sapply(acc(g, pkgs), names))
     pkgs <- unique(c(pkgs, deps))
     subGraph(pkgs, g)
@@ -27,7 +35,9 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 ##'     software packages), `"BioCann"` (Bioconductor annotation
 ##'     packages), `"BioCexp"` (Bioconductor experiment packages) or
 ##'     `"CRAN"` (CRAN packages).
-##' @return An object of class `graphNEL` from the package `graph`.
+##' @return An object of class `graphNEL` from the package
+##'     `graph`. The plotting function invisibly returns a `Ragraph`
+##'     object (from the `Rgraphviz` package).
 ##' @export
 ##' @rdname deps
 ##' @author Laurent Gatto
@@ -43,7 +53,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 pkg_dep_graph <- function(pkgs,
                           which = c("BioCsoft", "BioCann", "BioCexp", "CRAN")) {
     g <- full_pkg_dep_graph(which)
-    if (!missing(pkgs) & is.character(pkgs))
+    if (!missing(pkgs) && is.character(pkgs))        
         g <- subset_pkg_dep_graph(pkgs, g)
     return(g)
 }
@@ -77,11 +87,11 @@ plot_pkg_dep_graph <- function(gr, sz = 20, fs = 50,
                                    fontsize = fs,
                                    fillcolor = fillcolor)
     set_graph_pars()
-    plot(gr, nodeAttrs = nn,
-         attrs = list(edge = list(color = edge_colour)))
+    ans <- plot(gr, nodeAttrs = nn,
+                attrs = list(edge = list(color = edge_colour)))
+    invisible(ans)
 }
 
-##' @importFrom graph nodes
 set_edge_colours <- function(gr, pkgs, colour = "steelblue", 
                              names = FALSE) {
     if (length(colour) > 1) stopifnot(is.list(pkgs))
