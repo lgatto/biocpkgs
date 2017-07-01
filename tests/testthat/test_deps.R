@@ -15,11 +15,11 @@ test_that("Graph subsetting", {
 })
 
 
-test_that("Package deps plotting", {
-    gr <- pkg_dep_graph(which = "BioCexp")
-    pl <- plot_pkg_dep_graph(gr)
-    expect_true(inherits(pl, "Ragraph"))
-})
+## test_that("Package deps plotting", {
+##     gr <- pkg_dep_graph(which = "BioCexp")
+##     pl <- plot_pkg_dep_graph(gr)
+##     expect_true(inherits(pl, "Ragraph"))
+## })
 
 
 
