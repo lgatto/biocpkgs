@@ -24,7 +24,12 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 ##' all Bioconductor software or CRAN packages). The packages of
 ##' interest and all their dependencies are used to create the graph.
 ##'
-##' @title Build the package dependency graph
+##' The dependency graph is of class `graphNL`. Plotting the graph
+##' also relies on the `Rgraphviz` packge. None of these packages are
+##' attached to the search path, but users might need to load them if
+##' they wish to 
+##' 
+##' @title Package dependency graphs
 ##' @param pkgs The name of the package(s) to generate and plot the
 ##'     dependency graph of. For plotting, it can be a list (each
 ##'     element of the list being highlighted using different colours)
