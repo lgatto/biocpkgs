@@ -27,7 +27,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 ##'     software packages), `"BioCann"` (Bioconductor annotation
 ##'     packages), `"BioCexp"` (Bioconductor experiment packages) or
 ##'     `"CRAN"` (CRAN packages).
-##' @return An object of class `graphNEL`
+##' @return An object of class `graphNEL` from the package `graph`.
 ##' @export
 ##' @rdname deps
 ##' @author Laurent Gatto
