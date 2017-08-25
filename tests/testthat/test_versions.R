@@ -7,6 +7,7 @@ test_that("Package versions", {
     expect_identical(def, rel)
     expect_false(is.null(names(dev)))
 
+    library("Biobase")
     rel <- biocpkgversion("MSnbase", USE.NAMES = FALSE)
     dev <- biocpkgversion("MSnbase", "devel", USE.NAMES = FALSE)
     expect_true(is.null(names(dev)))
