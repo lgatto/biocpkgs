@@ -29,4 +29,3 @@ pkg_download_data("Biobase", by = "year", quiet = TRUE)
 \author{
 Laurent Gatto
 }
-

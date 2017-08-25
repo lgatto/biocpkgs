@@ -67,4 +67,3 @@ plot_pkg_dep_graph(g, pkgs = list("MSnbase", "mzR"),
 \author{
 Laurent Gatto
 }
-

@@ -1,4 +1,10 @@
-# biocpkgs 0.1.0
+# biocpkgs 0.1
+
+## biocpkgs 0.1.1
+
+- New biocpkgversion and githubpkgversion functions <2017-08-25 Fri>
+
+## biocpkgs 0.1.0
 
 - First release: `pkg_download_data` function <2017-06-27 Tue>
 - Add function for package dependencies <2017-06-30 Fri>
