@@ -3,6 +3,8 @@
 ## biocpkgs 0.1.1
 
 - New biocpkgversion and githubpkgversion functions <2017-08-25 Fri>
+- biocVersions function for Bioconducor release and devel versions
+  (moved over from cputols) <2017-09-07 Thu>
 
 ## biocpkgs 0.1.0
 
