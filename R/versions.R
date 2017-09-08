@@ -50,8 +50,10 @@ biocVersions <- function() {
 ##' biocpkgversion(c("MSnbase", "pRoloc"))
 ##' biocpkgversion(c("MSnbase", "pRoloc"), USE.NAMES = FALSE)
 ##' githubpkgversion("lgatto/MSnbase")
+##' githubpkgversion("MSnbase", "lgatto")
 ##' githubpkgversion("lgatto/MSnbase", USE.NAMES = FALSE)
 ##' githubpkgversion(c("lgatto/MSnbase", "lgatto/pRoloc"))
+##' cranpkgversion(c("sequences", "MALDIquant"))
 biocpkgversion <- function(pkg, which = c("release", "devel"),
                            type = c("software", "experiment",
                                     "annotation"), ...) {
@@ -91,4 +93,18 @@ githubpkgversion <- function(pkg, user = NULL, ...) {
                v <- x[grep("Version", x)]
                sub("Version: ", "", v)
            }, ...)
+}
+
+##' @rdname pkgversion
+##' @export
+cranpkgversion <- function(pkg, ...) {
+    urls <- paste0("https://cran.r-project.org/package=", pkg)
+
+    sapply(urls,
+           function(url) {
+               x <- readLines(url)
+               v <- x[grep("Version", x) + 1]
+               sub("^ *<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)               
+           }, ...)    
+
 }

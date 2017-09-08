@@ -7,6 +7,7 @@
   (moved over from cputols) <2017-09-07 Thu>
 - Add a type (software, experiment, annotation) to biocpkgversion
   <2017-09-08 Fri>
+- New cranpkgversion function <2017-09-08 Fri>
 
 ## biocpkgs 0.1.0
 

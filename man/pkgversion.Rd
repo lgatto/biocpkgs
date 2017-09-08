@@ -3,12 +3,15 @@
 \name{biocpkgversion}
 \alias{biocpkgversion}
 \alias{githubpkgversion}
+\alias{cranpkgversion}
 \title{Gets the package version numbers}
 \usage{
 biocpkgversion(pkg, which = c("release", "devel"), type = c("software",
   "experiment", "annotation"), ...)
 
 githubpkgversion(pkg, user = NULL, ...)
+
+cranpkgversion(pkg, ...)
 }
 \arguments{
 \item{pkg}{The name of the package(s) or, for \code{githubpkgversion},
@@ -49,8 +52,10 @@ biocpkgversion("MSnbase", "devel")
 biocpkgversion(c("MSnbase", "pRoloc"))
 biocpkgversion(c("MSnbase", "pRoloc"), USE.NAMES = FALSE)
 githubpkgversion("lgatto/MSnbase")
+githubpkgversion("MSnbase", "lgatto")
 githubpkgversion("lgatto/MSnbase", USE.NAMES = FALSE)
 githubpkgversion(c("lgatto/MSnbase", "lgatto/pRoloc"))
+cranpkgversion(c("sequences", "MALDIquant"))
 }
 \author{
 Laurent Gatto

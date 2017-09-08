@@ -31,6 +31,10 @@ test_that("Package versions", {
     v2 <- githubpkgversion("lgatto/pRoloc")
     expect_identical(v1, v2)
 
+    expect_is(cranpkgversion("sequences"), "character")
+    expect_identical(length(cranpkgversion(c("sequences", "MALDIquant"))),
+                     2L)
+    
     expect_error(githubpkgversion("foo", "bar"))
 })
 

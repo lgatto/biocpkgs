@@ -2,6 +2,7 @@
 
 export(biocVersions)
 export(biocpkgversion)
+export(cranpkgversion)
 export(githubpkgversion)
 export(pkg_dep_graph)
 export(pkg_download_data)
