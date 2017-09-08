@@ -5,19 +5,29 @@
 \alias{githubpkgversion}
 \title{Gets the package version numbers}
 \usage{
-biocpkgversion(pkg, which = c("release", "devel"), ...)
+biocpkgversion(pkg, which = c("release", "devel"), type = c("software",
+  "experiment", "annotation"), ...)
 
-githubpkgversion(pkg, ...)
+githubpkgversion(pkg, user = NULL, ...)
 }
 \arguments{
 \item{pkg}{The name of the package(s) or, for \code{githubpkgversion},
-the username and pkg formatted as \code{"user/package"}.}
+if \code{user} is \code{NULL} (default) the username and pkg formatted
+as \code{"user/package"}.}
 
 \item{which}{Either of \code{"release"} (default) or \code{"devel"}.}
+
+\item{type}{One of \code{"software"}, \code{"experiment"} or \code{"annotation"},
+defining the type of Bioconductor package is to be queried.}
 
 \item{...}{additional parameters passed to \code{sapply}, in particular
 \code{simplify} (default is \code{TRUE}) and \code{USE.NAMES} (default is
 \code{TRUE}).}
+
+\item{user}{the Github user or organisation where to find the
+package repository. Default is `NULL` and ignored. Otherwise,
+the packge name is constructed by concatenating to
+`"user/pkg"`.}
 }
 \value{
 A \code{vector} of length equal to the length of \code{pkg}
@@ -30,7 +40,7 @@ A set of functions to retrieve the version number from packages
 available in Bioconductor or on Github. The version numbers are
 extracted from the Bioconductor package landing page and the
 Github master branch, irrespective or the package's local
-version of availability.
+version or availability.
 }
 \examples{
 biocpkgversion("MSnbase", "release")

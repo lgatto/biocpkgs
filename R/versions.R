@@ -23,15 +23,18 @@ biocVersions <- function() {
 ##' available in Bioconductor or on Github. The version numbers are
 ##' extracted from the Bioconductor package landing page and the
 ##' Github master branch, irrespective or the package's local
-##' version of availability.
+##' version or availability.
 ##'
 ##' @title Gets the package version numbers
 ##' @param pkg The name of the package(s) or, for `githubpkgversion`,
-##'     the username and pkg formatted as `"user/package"`.
+##'     if `user` is `NULL` (default) the username and pkg formatted
+##'     as `"user/package"`.
 ##' @param which Either of `"release"` (default) or `"devel"`.
 ##' @param ... additional parameters passed to `sapply`, in particular
 ##'     `simplify` (default is `TRUE`) and `USE.NAMES` (default is
 ##'     `TRUE`).
+##' @param type One of `"software"`, `"experiment"` or `"annotation"`,
+##'     defining the type of Bioconductor package is to be queried.
 ##' @return A `vector` of length equal to the length of `pkg`
 ##'     containing the respective version numbers. By default, the
 ##'     return value is named (`USE.NAMES = TRUE`) and simplified to a
@@ -49,21 +52,37 @@ biocVersions <- function() {
 ##' githubpkgversion("lgatto/MSnbase")
 ##' githubpkgversion("lgatto/MSnbase", USE.NAMES = FALSE)
 ##' githubpkgversion(c("lgatto/MSnbase", "lgatto/pRoloc"))
-biocpkgversion <- function(pkg, which = c("release", "devel"), ...) {
+biocpkgversion <- function(pkg, which = c("release", "devel"),
+                           type = c("software", "experiment",
+                                    "annotation"), ...) {
     which <- match.arg(which)
-    urls <- paste0("https://bioconductor.org/packages/", which,
-                  "/bioc/html/", pkg, ".html")
+    type <- match.arg(type)
+    urls <- switch(type,
+                   software = paste0("https://bioconductor.org/packages/",
+                                     which, "/bioc/html/", pkg, ".html"),
+                   experiment = paste0("https://bioconductor.org/packages/",
+                                       which , "/data/experiment/html/", pkg,
+                                       ".html"),
+                   annotation = paste0("https://bioconductor.org/packages/",
+                                       which, "/data/annotation/html/", pkg,
+                                       ".html"))           
     sapply(urls,
            function(url) {
                x <- readLines(url)
                v <- x[grep("Version", x) + 1]
                sub("^ +<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
            }, ...)
-}
+    }
 
 ##' @rdname pkgversion
 ##' @export
-githubpkgversion <- function(pkg, ...) {
+##' @param user the Github user or organisation where to find the
+##'     package repository. Default is `NULL` and ignored. Otherwise,
+##'     the packge name is constructed by concatenating to
+##'     `"user/pkg"`.
+githubpkgversion <- function(pkg, user = NULL, ...) {
+    if (!is.null(user))
+        pkg <- paste(user, pkg, sep = "/")
     urls <- paste0("https://raw.githubusercontent.com/", pkg,
                   "/master/DESCRIPTION")
     sapply(urls,

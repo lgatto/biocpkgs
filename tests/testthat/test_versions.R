@@ -18,10 +18,20 @@ test_that("Package versions", {
     gh <- new("Versioned", versions = list(MSnbase = gh))
     expect_true(classVersion(dev) <= classVersion(gh))
 
+    expect_is(biocpkgversion("GO.db", type = "annotation"), "character")
+    expect_is(biocpkgversion("pRolocdata", type = "experiment"), "character")
+    expect_error(biocpkgversion("pRolocdata", type = "software"))
+    
     ps <- c("MSnbase", "pRoloc")
     expect_identical(length(ps), length(biocpkgversion(ps)))
     expect_identical(length(ps),
-                     length(githubpkgversion(paste0("lgatto/", ps))))    
+                     length(githubpkgversion(paste0("lgatto/", ps))))
+
+    v1 <- githubpkgversion("pRoloc", "lgatto")
+    v2 <- githubpkgversion("lgatto/pRoloc")
+    expect_identical(v1, v2)
+
+    expect_error(githubpkgversion("foo", "bar"))
 })
 
 test_that("Bioconductor version numbers", {
