@@ -86,7 +86,7 @@ plot_pkg_dep_graph <- function(gr, sz = 20, fs = 50,
                                edge_colour = "#00000040") {
     fillcolor <- "#e0e0e0"
     if (!missing(pkgs))
-        fillcolor <- set_edge_colours(gr, pkgs, colour)
+        fillcolor <- set_edge_colours(gr, as.list(pkgs), colour)
     nn <- Rgraphviz::makeNodeAttrs(gr,
                                    height = sz, width = sz,
                                    fontsize = fs,
