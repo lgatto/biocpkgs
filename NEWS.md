@@ -1,5 +1,11 @@
 # biocpkgs 0.1
 
+## biocpkgs 0.1.2
+
+- Make sure `biocpkgversion` doesn't stop with an error if the URL
+  isn't available, such as it the Bioconducor package fails (after a
+  release) and doesn't generate it's landing page.
+
 ## biocpkgs 0.1.1
 
 - New biocpkgversion and githubpkgversion functions <2017-08-25 Fri>

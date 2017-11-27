@@ -38,10 +38,15 @@ test_that("Package versions", {
     expect_error(githubpkgversion("foo", "bar"))
 })
 
+test_that("Package versions", {
+    nav <- biocpkgversion("foo")
+    expect_true(is.na(nav))
+})
+
 test_that("Bioconductor version numbers", {
     v <- biocVersions()
     ## update me for every new release
-    v0 <- c("3.5", "3.6")
+    v0 <- c("3.6", "3.7")
     names(v0) <- c("release", "devel")
     expect_identical(v, v0)
 })

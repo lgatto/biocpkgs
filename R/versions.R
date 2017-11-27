@@ -70,9 +70,14 @@ biocpkgversion <- function(pkg, which = c("release", "devel"),
                                        ".html"))           
     sapply(urls,
            function(url) {
-               x <- readLines(url)
-               v <- x[grep("Version", x) + 1]
-               sub("^ +<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
+               x <- tryCatch(readLines(url), error = function(e) return(NULL))
+               if (is.null(x)) {
+                   v <- NA
+               } else {
+                   v <- x[grep("Version", x) + 1]
+                   v <- sub("^ +<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
+               }
+               return(v)               
            }, ...)
     }
 
