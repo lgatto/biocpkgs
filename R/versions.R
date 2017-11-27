@@ -70,7 +70,10 @@ biocpkgversion <- function(pkg, which = c("release", "devel"),
                                        ".html"))           
     sapply(urls,
            function(url) {
-               x <- tryCatch(readLines(url), error = function(e) return(NULL))
+               x <- tryCatch(readLines(url), error = function(e) {
+                   warning("Package URL not found.")
+                   return(NULL)
+               })
                if (is.null(x)) {
                    v <- NA
                } else {
