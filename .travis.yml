@@ -12,7 +12,7 @@ bioc_packages:
   - pkgDepTools
   - graph
   - Rgraphviz
-
+  - MSnbase
 
 after_success:
   - Rscript -e 'covr::codecov()'
