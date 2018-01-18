@@ -5,6 +5,8 @@
 - Make sure `biocpkgversion` doesn't stop with an error if the URL
   isn't available, such as it the Bioconducor package fails (after a
   release) and doesn't generate it's landing page.
+- New functions to access package contributors. See `?contribs` for
+  details. 
 
 ## biocpkgs 0.1.1
 
