@@ -40,9 +40,9 @@ ncontribs("MSnbase")
 pkgcre("MSnbase")
 ## same as
 pkgrole("MSnbase", "cre")
-pkgaut("rols")
+pkgaut("MSnbase")
 ## same as
-pkgrole("rols", "aut")
+pkgrole("MSnbase", "aut")
 }
 \author{
 Laurent Gatto
