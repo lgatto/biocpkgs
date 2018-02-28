@@ -67,7 +67,7 @@ biocpkgversion <- function(pkg, which = c("release", "devel"),
                                        ".html"),
                    annotation = paste0("https://bioconductor.org/packages/",
                                        which, "/data/annotation/html/", pkg,
-                                       ".html"))           
+                                       ".html"))
     sapply(urls,
            function(url) {
                x <- tryCatch(readLines(url), error = function(e) {
@@ -78,9 +78,9 @@ biocpkgversion <- function(pkg, which = c("release", "devel"),
                    v <- NA
                } else {
                    v <- x[grep("Version", x) + 1]
-                   v <- sub("^ +<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
+                   v <- sub("^\\s+<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
                }
-               return(v)               
+               return(v)
            }, ...)
     }
 
@@ -112,7 +112,7 @@ cranpkgversion <- function(pkg, ...) {
            function(url) {
                x <- readLines(url)
                v <- x[grep("Version", x) + 1]
-               sub("^ *<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)               
-           }, ...)    
+               sub("^ *<td>([0-9\\.]+)</td>", "\\1", v, fixed = FALSE)
+           }, ...)
 
 }
