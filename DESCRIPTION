@@ -1,8 +1,8 @@
 Package: biocpkgs
 Title: Learning about Bioconductor packages
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: person("Laurent", "Gatto",
-                  email = "lg390@cam.ac.uk",
+		  email = "laurent.gatto@uclouvain.be",
 		  role = c("aut", "cre"))
 Description: The package provides utiliites to detrieve and inspect
     the download stats for any Bioconductor package and to
@@ -10,7 +10,7 @@ Description: The package provides utiliites to detrieve and inspect
 Depends:
     R (>= 3.4.0)
 Imports:
-    BiocInstaller,
+    BiocManager,
     pkgDepTools,
     graph,
     Rgraphviz,
@@ -23,4 +23,4 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

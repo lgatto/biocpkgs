@@ -1,12 +1,17 @@
 # biocpkgs 0.1
 
+## biocpkgs 0.1.3
+
+- Update contact email address
+- Replace BioInstaller by BiocManager
+
 ## biocpkgs 0.1.2
 
 - Make sure `biocpkgversion` doesn't stop with an error if the URL
   isn't available, such as it the Bioconducor package fails (after a
   release) and doesn't generate it's landing page.
 - New functions to access package contributors. See `?contribs` for
-  details. 
+  details.
 
 ## biocpkgs 0.1.1
 
@@ -21,6 +26,3 @@
 
 - First release: `pkg_download_data` function <2017-06-27 Tue>
 - Add function for package dependencies <2017-06-30 Fri>
-
-
-

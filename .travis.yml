@@ -22,7 +22,6 @@ r_packages:
   - covr
 
 bioc_packages:
-  - BiocInstaller
   - pkgDepTools
   - graph
   - Rgraphviz

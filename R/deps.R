@@ -1,6 +1,7 @@
+##' @importFrom BiocManager repositories
 full_pkg_dep_graph <- function(which = c("BioCsoft", "BioCann", "BioCexp", "CRAN")) {
     which <- match.arg(which)
-    biocUrl <- BiocInstaller::biocinstallRepos()[which]
+    biocUrl <- repositories()[which]
     pkgDepTools::makeDepGraph(biocUrl, type = "source", dosize = FALSE)
 }
 
@@ -13,7 +14,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
         pkgs <- pkgs[ingr]
         if (length(pkgs) == 0)
             return(g)
-    }        
+    }
     deps <- unlist(sapply(acc(g, pkgs), names))
     pkgs <- unique(c(pkgs, deps))
     subGraph(pkgs, g)
@@ -28,7 +29,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 ##' also relies on the `Rgraphviz` packge. None of these packages are
 ##' attached to the search path, but users might need to load them if
 ##' they wish to manipulate the graph and customise the visualisation.
-##' 
+##'
 ##' @title Package dependency graphs
 ##' @param pkgs The name of the package(s) to generate and plot the
 ##'     dependency graph of. For plotting, it can be a list (each
@@ -58,7 +59,7 @@ subset_pkg_dep_graph <- function(pkgs, g) {
 pkg_dep_graph <- function(pkgs,
                           which = c("BioCsoft", "BioCann", "BioCexp", "CRAN")) {
     g <- full_pkg_dep_graph(which)
-    if (!missing(pkgs) && is.character(pkgs))        
+    if (!missing(pkgs) && is.character(pkgs))
         g <- subset_pkg_dep_graph(pkgs, g)
     return(g)
 }
@@ -97,7 +98,7 @@ plot_pkg_dep_graph <- function(gr, sz = 20, fs = 50,
     invisible(ans)
 }
 
-set_edge_colours <- function(gr, pkgs, colour = "steelblue", 
+set_edge_colours <- function(gr, pkgs, colour = "steelblue",
                              names = FALSE) {
     if (length(colour) > 1) stopifnot(is.list(pkgs))
     else pkgs <- list(pkgs)

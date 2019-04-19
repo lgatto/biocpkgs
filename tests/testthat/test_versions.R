@@ -20,7 +20,7 @@ test_that("Package versions", {
 
     expect_is(biocpkgversion("GO.db", type = "annotation"), "character")
     expect_is(biocpkgversion("pRolocdata", type = "experiment"), "character")
-    
+
     ps <- c("MSnbase", "pRoloc")
     expect_identical(length(ps), length(biocpkgversion(ps)))
     expect_identical(length(ps),
@@ -33,7 +33,7 @@ test_that("Package versions", {
     expect_is(cranpkgversion("sequences"), "character")
     expect_identical(length(cranpkgversion(c("sequences", "MALDIquant"))),
                      2L)
-    
+
     expect_error(githubpkgversion("foo", "bar"))
 })
 
@@ -41,13 +41,13 @@ test_that("Package versions", {
     nav <- biocpkgversion("foo")
     expect_true(is.na(nav))
     expect_warning(nav <- biocpkgversion("pRolocdata", type = "software"))
-    expect_true(is.na(nav))    
+    expect_true(is.na(nav))
 })
 
 test_that("Bioconductor version numbers", {
     v <- biocVersions()
     ## update me for every new release
-    v0 <- c("3.6", "3.7")
+    v0 <- c("3.8", "3.9")
     names(v0) <- c("release", "devel")
     expect_identical(v, v0)
 })
